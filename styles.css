@@ -1,0 +1,280 @@
+
+body {
+  color: #222;
+  font: 500 14px/16px "Dosis", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.homepage-header {
+  background-color: #0d26ff; 
+  color:#fff;
+  height:70px;
+}
+
+.homepage-header h3 {
+  font-size: 30px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.homepage-login {
+  display: inline-block;;
+}
+
+.connect-info {
+  width: 60%;
+}
+
+.signup-info{
+  width: 40%;
+}
+
+.connect-info,
+.signup-info{
+  display: inline-block;
+  vertical-align: top;
+}
+
+.connect-info h3 {
+  font-weight:  26px;
+}
+
+.connect-info ul {
+  list-style-type: disc;
+}
+
+.signup-info h2{
+  font-weight: 30px;
+}
+
+
+.danebook-header {
+  background-color: #0d26ff; 
+  color:#fff;
+  height:40px;
+}
+
+.danebook-header img {
+  float: left;
+  background-color: #fff;
+  width: 35px;
+}
+
+.danebook-header h3 {
+  font-size: 24px;
+  text-align: left
+}
+
+.danebook-header span {
+  font-size: 16px;
+  text-align: right;
+}
+
+
+.danebook-banner {
+  height: 380px;
+}
+
+.banner-image {
+  width: 100%;
+  height: 80%;
+}
+
+.user-image {
+  display: inline;
+  position: relative;
+  bottom: 140px;
+  left: 20px;
+  height:  120px;
+}
+
+
+.personal-space {
+  margin-top: 45px;
+  margin-bottom:  20px;
+  height: 400px;
+}
+
+.danebook-banner,
+.personal-space {
+  float: right;
+  margin: 0 1.5%;
+  width: 90%;
+  border: 2px solid #000;
+}
+
+.personal-space-header {
+  height: 45px;
+  background-color:#e5e8cd;
+  line-height: 3em;
+  border: 2px solid #000;
+}
+
+.personal-space-header h2{
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.friend-space {
+  float: right;
+  margin: 0 1.5%;
+  width: 90%;
+  height: 450px;
+  border: 2px solid #000;
+}
+
+.friend-space-header {
+  height: 45px;
+  background-color:#e5e8cd;
+  line-height: 3em;
+  border: 2px solid #000;
+}
+
+.friend-space-header h2{
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.friend-window {
+  display: inline-block;
+  margin: 0 1.5%;
+  width: 45%;
+  height: 100px;
+  border: 2px solid #000;
+}
+
+.friend-photo {
+  width: 75px;
+  display: inline-block;
+}
+
+.friend-window span{
+  width: 30%;
+  display: inline-block;
+}
+
+.friend-window button {
+  display: inline-block;
+  width: 35%;
+}
+
+.photo-space {
+  height: 700px;
+  float: right;
+  width: 90%;
+  border: 2px solid #000;
+}
+
+.photo-space-header {
+  height: 45px;
+  background-color:#e5e8cd;
+  line-height: 3em;
+  border: 2px solid #000;
+}
+
+.photo-space-header h2{
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.photo-window {
+  display: inline-block;
+  margin: 18px;
+  width: 20%;
+  border: 2px solid #000;
+}
+
+.photo-window  img{
+  width: 100%;
+}
+
+.personal-info {
+  float:left;
+  display:inline-block;
+  width:40%;
+  height:90%;
+  color:red;
+  line-height: 33px;
+}
+
+.table-key {
+  float: left;
+  font-weight: 600;
+}
+
+.table-value {
+  float: right;
+  text-align: right;
+}
+
+.personal-thoughts {
+  float:right;
+  display: inline-block;
+  width:40%;
+  height:90%;
+}
+
+.personal-info h3,
+.personal-thoughts h3 {
+  font-size: 26px;
+  color:green;
+  margin-bottom: 20px;
+}
+
+.editable {
+  border: 2px solid #444;
+  margin: 5px;
+}
+
+nav {
+  text-align: left;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 10px;
+  vertical-align: top;
+  border: 1px solid #000;
+}
+
+nav li:last-child {
+  margin-right: 0;
+}
+
+.edit-profile {
+  display: inline;
+  text-align: right;
+}
+
+
+.banner-nav {
+  height: 40px;
+  background-color: yellow;
+}
+
+.save-changes {
+  color:#fff;
+  background-color: #235bff;
+  height: 70px;
+  width: 400px;
+  border: 1px solid #000;
+  margin: 0 auto;
+}
+
+.save-changes h4 {
+  font-size: 26px;
+}
+
+.signup-button {
+  color:#fff;
+  background-color: #6AE80F;
+  height: 40px;
+  width: 300px;
+  border: 1px solid #000;
+}
+
+.signup-button span {
+  font-size: 20px;
+}
+
