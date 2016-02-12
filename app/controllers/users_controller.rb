@@ -30,8 +30,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find( params[:id] )
+    puts params
     if @user.update( whitelisted_params )
+      puts params
       flash[:success] = "user updated"
       redirect_to user_path(@user)
     else
