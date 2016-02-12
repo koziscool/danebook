@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       redirect_to user_path(@user)
     else
       flash.now[:error] = "We couldn't sign you in"
-      render :new
+      redirect_to root_path
     end
   end
 
