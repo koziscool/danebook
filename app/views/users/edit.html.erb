@@ -24,7 +24,7 @@
       </div>
 
       <%= form_for @user do |user_field| %>
-        <%= user_field.fields_for :profiles do |pf| %>
+        <%= user_field.fields_for :profile do |pf| %>
 
 
  			<!-- Second Row Content -->
@@ -80,7 +80,7 @@
           <%= pf.label :email %>
  			  </div>
  			  <div class="col-md-6">
- 			    <%= pf.text_field :email, class: "form-control" %>
+ 			    <%= user_field.text_field :email, class: "form-control" %>
  			  </div>
  			</div>
 
