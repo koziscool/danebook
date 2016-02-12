@@ -1,95 +1,71 @@
 class UsersController < ApplicationController
 
-  before_action :require_login,   :except => [ :new, :create ]
-  before_action :require_current_user,  :only => [ :edit, :show, :destroy ]
+  # before_action :require_logout, only: [:new]
+  before_action :require_login, except: [:new, :create]
+  before_action :require_current_user, only: [:edit, :update, :destroy]
+
 
   def index
-    @users = User.all
   end
 
-  # GET /users/1
-  # GET /users/1.json
-  def show
-    @user = current_user
-  end
-
-  # GET /users/new
   def new
     @user = User.new
+    @user.build_profile
   end
 
-  # GET /users/1/edit
-  def edit
-  end
-
-  # POST /users
-  # POST /users.json
   def create
-    @user = User.new( whitelist_params )
-
-    # respond_to do |format|
-      if @user.save
-        render :show
-        # format.html { redirect_to @user, notice: 'User was successfully created.' }
-        # format.json { render :show, status: :created, location: @user }
+    @user = User.new(whitelisted_params)
+    if @user.save
+      if sign_in(@user)
+        flash[:success] = "You successfully signed in"
+        redirect_to user_path(@user.id)
       else
-        render:new
-        # format.html { render :new }
-        # format.json { render json: @user.errors, status: :unprocessable_entity }
+        flash[:error] = "The sign up was not working"
+        redirect_to user_path(@user.id)
       end
-    # end
-  end
-
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
-  #needs to be current_user instead of @user
-  def update
-    respond_to do |format|
-      if @user.update( whitelist_params )
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    else
+      flash.now[:error] = "The sign up was not successful"
+      render :new
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
-  def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+  def show
+    @user = User.find(params[:id])
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
+  def edit
+    @user = User.find(params[:id])
+  end
 
-
-    def whitelist_params
-      params.require(:user).permit(:username, :email, :password, :password_confirmation, :id )
-    end
+  def about
     
-    def require_login
-      unless signed_in_user?
-        flash[:error] = "Not authorized, please sign in!"
-        redirect_to login_path  #< Remember this is a custom route
-      end
-    end
+  end
 
-  def require_current_user
-    # don't forget that params is a string!!!
-    unless params[:id] == current_user.id.to_s
-      flash[:error] = "You're not authorized to view this"
-      redirect_to root_url
-    end
-  end 
+  def photos
 
+  end
+
+  def friends
+  end
+
+  
+  private
+
+    def whitelisted_params
+      params.require(:user).
+      permit(:first_name, 
+        :last_name, 
+        :email, 
+        :password, 
+        :password_confirmation,
+        :profile_attributes => [
+            :birthday,
+            :current_location,
+            :hometown,
+            :school,
+            :motto,
+            :about,
+            :telephone])
+    end
 
 end
