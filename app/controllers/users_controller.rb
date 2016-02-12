@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   # before_action :require_logout, only: [:new]
-  before_action :require_login, except: [:new, :create]
+  before_action :require_login, except: [:new, :create, :show]
   before_action :require_current_user, only: [:edit, :update, :destroy]
 
 
@@ -30,10 +30,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find( params[:id] )
-    puts params
+    @user = User.find(params[:id])
     if @user.update( whitelisted_params )
-      puts params
       flash[:success] = "user updated"
       redirect_to user_path(@user)
     else
@@ -43,15 +41,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
     @user = User.find(params[:id])
   end
 
-  def about
-    
+  def timeline
   end
 
   def photos
