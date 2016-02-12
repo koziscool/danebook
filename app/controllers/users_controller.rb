@@ -67,7 +67,7 @@ class UsersController < ApplicationController
 
 
     def whitelist_params
-      params.require(:user).permit(:username, :email, :password, :password_confirmation, :id,  )
+      params.require(:user).permit(:username, :email, :password, :password_confirmation, :id )
     end
     
     def require_login

@@ -4,6 +4,10 @@
       Danebook
     </h3>
     <%= form_tag session_path do %>
+      <%= label_tag do %>
+          Remember me?
+          <%= check_box_tag :remember_me %>
+      <% end %>
 
       <%= label_tag do %>
         Email
@@ -26,8 +30,8 @@
   <ul>
   <li>See photos and updates in your news feed</li>
   <li>Post your status for the world to see from your profile</li>
-  <li>Get intouch with your friends by "friending" them</li>
-  <li>Like things because you're a positivie person!</li>
+  <li>Get in touch with your friends by "friending" them</li>
+  <li>Like things because you're a positive person!</li>
   </ul>
 </section>
 
@@ -35,12 +39,9 @@
   <h2>
       Sign Up
   </h2>
-  <fieldset>
-    <input type="text" name="first-name" placeholder="First Name" class="homepage-signup">
-    <input type="text" name="last-name" placeholder="Last Name" class="homepage-signup">
-    <input type="text" name="your-email" placeholder="Your Email" class="homepage-signup">
-    <input type="text" name="your-new-password" placeholder="Your New Password" class="homepage-signup">
-    <input type="text" name="confirm-password" placeholder="Confirm Your Password" class="homepage-signup">
+  
+  <%= render 'form' %>
+  <fieldset>  
   <h5>
       Birthday
   </h5>
