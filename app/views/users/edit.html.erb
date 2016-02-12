@@ -41,107 +41,104 @@
       <%= form_for @user do |user_field| %>
         <%= user_field.fields_for :profiles do |pf| %>
 
-      <!-- Second Row Content -->
-      <div class="content row">
+
+ 			<!-- Second Row Content -->
+ 			<div class="content row">
         <div class="col-md-4 col-md-offset-2">
-          <strong>Birthday:</strong>
+          <%= pf.label :birthday %>
         </div>
         <div class="col-md-6">
-        <textarea class="form-control">July 31st, 1980
-          </textarea>
+          <%= pf.date_field(:birthday, class: "form-control") %>
         </div>
       </div>
 
-      <!-- Third Row Content -->
-      <div class="content row">
-        <div class="col-md-4 col-md-offset-2">
-<!--            <strong>College:</strong> -->
+ 			<!-- Third Row Content -->
+ 			<div class="content row">
+ 			  <div class="col-md-4 col-md-offset-2">
           <%= pf.label :school %>
-        </div>
-        <div class="col-md-6">
+ 			  </div>
+ 			  <div class="col-md-6">
           <%= pf.text_field :school, class: "form-control" %>
-<!--        <textarea class="form-control">Hogwarts College
-          </textarea></div> -->
-      </div>
+        </div>
+ 			</div>
+      
+ 			<!-- Fourth Row Content -->
+ 			<div class="content row">
+ 			  <div class="col-md-4 col-md-offset-2">
+          <%= pf.label :hometown %>
+ 			  </div>
+ 			  <div class="col-md-6">
+          <%= pf.text_field :hometown, class: "form-control" %>
+        </div>
+ 			</div>
 
-      <!-- Fourth Row Content -->
-      <div class="content row">
+ 			<!-- Fifth Row Content -->
+ 			<div class="content row">
         <div class="col-md-4 col-md-offset-2">
-          <strong>Hometown:</strong>
+          <%= pf.label :current_location %>
         </div>
         <div class="col-md-6">
-        <textarea class="form-control">Godrick's Hollow, England
-          </textarea></div>
-      </div>
-
-      <!-- Fifth Row Content -->
-      <div class="content row">
-        <div class="col-md-4 col-md-offset-2">
-          <strong>Birthday:</strong>
-        </div>
-        <div class="col-md-6">
-        <textarea class="form-control">Godrick's Hollow, England
-          </textarea></div>
-      </div>
-
-      <!-- Left Bottom Content -->
-      <div class="header2 row">
-        <div class="col-md-10 col-md-offset-2">
-          <h1>Contact Information</h1>
+          <%= pf.text_field :current_location, class: "form-control" %>
         </div>
       </div>
 
-      <!-- First Bottom Row -->
-      <div class="content row">
-        <div class="col-md-4 col-md-offset-2">
-          <strong>Email:</strong>
-        </div>
-        <div class="col-md-6">
-          <textarea class="form-control">Harry_potter@hogwarts.edu</textarea>
-        </div>
-      </div>
+ 			<!-- Left Bottom Content -->
+			<div class="header2 row">
+ 			  <div class="col-md-10 col-md-offset-2">
+ 			    <h1>Contact Information</h1>
+ 			  </div>
+ 			</div>
 
-      <!-- Second Bottom Row -->
-      <div class="content row">
-        <div class="col-md-4 col-md-offset-2">
-          <strong>Telephone:</strong>
-        </div>
-        <div class="col-md-6">
-          <textarea class="form-control">555 - 123 - 4567</textarea>
-        </div>
-      </div>
+ 			<!-- First Bottom Row -->
+ 			<div class="content row">
+ 			  <div class="col-md-4 col-md-offset-2">
+          <%= pf.label :email %>
+ 			  </div>
+ 			  <div class="col-md-6">
+ 			    <%= pf.text_field :email, class: "form-control" %>
+ 			  </div>
+ 			</div>
 
-      </div><!-- End Left Content Container -->
+ 			<!-- Second Bottom Row -->
+ 			<div class="content row">
+ 			  <div class="col-md-4 col-md-offset-2">
+ 			  	<%= pf.label :telephone %>
+ 			  </div>
+ 			  <div class="col-md-6">
+ 			    <%= pf.text_field :telephone, class: "form-control" %>
+ 			  </div>
+ 			</div>
 
-      <!-- Right Side Content -->
-      <div class="col-md-5 col-md-offset-1">
-       <div class="header row">
-         <h1>Words to Live By</h1>
-       </div>
-       <div class="conent row">
-         <textarea class="form-control edit-profile" rows="6">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, Duis aute irure dolor in reprehenderit in voluptate velit esse.</textarea>
-       </div>
-       <div class="header row">
-         <h1>About Me</h1>
-       </div>
-       <div class="conent row">
-         <textarea class="form-control edit-profile" rows="6">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtemp orincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
-       </div>
-      </div><!-- End Right Side for left content-->
-    </div><!-- End Content Row -->
+ 		  </div><!-- End Left Content Container -->
 
+ 		  <!-- Right Side Content -->
+ 		  <div class="col-md-5 col-md-offset-1">
+ 		   <div class="header row">
+ 		     <%= pf.label :motto, "Words to live by" %>
+ 		   </div>
+ 		   <div class="conent row">
+         <%= pf.text_area :motto, rows: "6" %>
+ 		   </div>
+ 		   <div class="header row">
+ 		     <%= pf.label :about %>
+ 		   </div>
+ 		   <div class="conent row">
+ 		     <%= pf.text_area :about, rows: "8" %>
+ 		   </div>
+ 		  </div><!-- End Right Side for left content-->
+ 		</div><!-- End Content Row -->
+
+    <% end %>
     <!-- Save Button Row -->
     <div class="save-button row">
       <div class="col-sm-6 col-sm-offset-3">
       <!-- Big Save button CTA -->
-        <!-- <button type="button" class="btn btn-primary btn-lg btn-block">Save Changes</button> -->
-        <% end %>
-        <%= user_field.submit %>
-      <% end %>
+        <%= user_field.submit "Save Changes", class: "btn btn-primary btn-lg btn-block" %>
       </div>
     </div>
-    </div>
-  </main>
+  <% end %>
+  </div>
+</main>
 
 
     
