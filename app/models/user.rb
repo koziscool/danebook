@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
 
 
 
-  private
   def generate_token
     begin
       self[:auth_token] = SecureRandom.urlsafe_base64
@@ -21,5 +20,5 @@ class User < ActiveRecord::Base
     generate_token
     save!
   end
-  
+
 end

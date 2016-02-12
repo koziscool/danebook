@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+  before_action :require_login,   :except => [ :new, :create ]
+  before_action :require_current_user,  :only => [ :edit, :show, :destroy ]
+
   def index
     @users = User.all
   end
@@ -7,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = current_user
   end
 
   # GET /users/new
