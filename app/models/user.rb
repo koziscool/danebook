@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   before_create :generate_token
 
+  has_many :posts
+
   has_one :profile, inverse_of: :user
 
   accepts_nested_attributes_for :profile
