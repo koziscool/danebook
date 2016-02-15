@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
     if @current_user.save
       flash[:success] = "You created a post"
-      redirect_to timeline_path
+      redirect_to user_timeline_path(@current_user)
     else
       flash.now[:error] = "Failed to create post"
       render :timeline
