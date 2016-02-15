@@ -8,9 +8,17 @@ Rails.application.routes.draw do
     get "photos" => "users#photos"
   end
 
-  resources :posts, only: [:create, :delete]
+  resources :posts, only: [:create, :destroy] do
+    resources :likes, only: [:create, :destroy], defaults: { likeable: 'Post' }
+    resources :comments, only: [:create, :destroy], defaults: { commentable: 'Post' }
+  end
 
-  resource :session, only: [:create, :delete]
+  resources :comments, only: [:create, :destroy] do
+    resources :likes, only: [:create, :destroy], defaults: { likeable: 'Comment' }
+    resources :comments, only: [:create, :destroy], defalts: { commentable: 'Comment' }
+  end
+
+  resource :session, only: [:create, :destroy]
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
 
