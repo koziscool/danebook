@@ -63,12 +63,12 @@
 
             <!-- Links listed -->
             <ul class="nav navbar-nav">
-          <li class="btn btn-default btn-md"><%= link_to "Timeline", user_timeline_path(@user) %></li>
+          <li class="btn btn-default btn-md"><%= link_to "Timeline", user_timeline_path(current_user) %></li>
 
           <!-- Id selector 'Active' for current location -->
           <li class="btn btn-default btn-md" id="active"><%= link_to "About", @user %></li>
-          <li class="btn btn-default btn-md"><%= link_to "Photos", user_photos_path(@user) %></li>
-          <li class="btn btn-default btn-md"><%= link_to "Friends", user_friends_path(@user) %></li>
+          <li class="btn btn-default btn-md"><%= link_to "Photos", user_photos_path(current_user) %></li>
+          <li class="btn btn-default btn-md"><%= link_to "Friends", user_friends_path(current_user) %></li>
       </ul>
       <div class="pull-right">
         <% if current_user? %>
