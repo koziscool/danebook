@@ -9,10 +9,16 @@
 	  	  <div class="col-md-2 col-md-offset-3">
 
 	  	  <!-- Edit Profile Button -->
-        <% if current_user? %>
+        <% if current_user == @user %>
 	  	  	<div class="navbar-right edit-button">
 	  	  	  <%= link_to "Edit your profile", edit_user_path(current_user), class: "btn btn-primary" %>
 	  	    </div>
+        <% else %>
+	  	  	<div class="navbar-right edit-button">
+		        <%= form_tag user_friendings_path(@user) do %>
+		          <%= submit_tag "Friend Me", class: "btn center btn-md btn-primary" %>
+		  	    </div>
+	        <% end %>	  	    
         <% end %>
 	  	  </div>
 	  	</div>

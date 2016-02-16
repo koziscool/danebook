@@ -5,9 +5,9 @@ class FriendingsController < ApplicationController
 
   def create
     current_user.friendings_initiated.build(initiator_id: current_user.id, 
-      recipient_id: params[:id] )
-    friended_user = User.find( params[:id] )
-    redirect_to friended_user
+      recipient_id: params[:user_id] )
+    friended_user = User.find( params[:user_id] )
+    redirect_to user_timeline_path( friended_user )
   end
 
   def destroy
