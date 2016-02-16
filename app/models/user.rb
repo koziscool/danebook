@@ -9,6 +9,13 @@ class User < ActiveRecord::Base
   has_many :comments, foreign_key: :author_id, dependent: :destroy
   has_many :likes, foreign_key: :author_id, dependent: :destroy
 
+  has_many :friendings_initiated, class_name: "Friending", foreign_key: :initiator_id
+  has_many :friends_initiated, through: :friendings_initiated, source: :recipient
+
+  has_many :friendings_received, class_name: "Friending", foreign_key: :recipient_id
+  has_many :friends_received, through: :friendings_recieved, source: :initiator
+
+
   accepts_nested_attributes_for :profile
 
   validates :password,

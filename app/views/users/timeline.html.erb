@@ -14,7 +14,7 @@
         <div class="about-wrapper col-sm-12">
         <!-- Header Row -->
           <div class="about-header row">
-            About (Text Area)
+            About
           </div>
           
           <!-- Content Row 1 -->
@@ -47,11 +47,17 @@
 
      <div class="content row">
       <div class="col-md-3 col-md-offset-1">
-        <strong>Birthday:</strong>
+        <strong>Current Location:</strong>
       </div>
       <div class="col-md-8">
         Godrick's Hollow, England
       </div>
+      <div class="col-md-8">
+        <%= form_tag friends_path do %>
+          <%= submit_tag "Friend Me", class: "btn navbar-right btn-primary" %>
+        <%= end %>
+      </div>
+
      </div>
         </div><!-- End About wrapper -->
       </div><!-- End About Row -->
@@ -136,7 +142,7 @@
         <div class="friends-wrapper col-sm-12">
           <!-- Header Row -->
           <div class="friends-header row">
-            friends (542) (Copied Text Area)
+            friends (542)
           </div>
 
           <!-- Photo Thumbnails Container -->
