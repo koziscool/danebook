@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy], defalts: { commentable: 'Comment' }
   end
 
+  resources :friendings, only: [:create, :destroy] 
+
   resource :session, only: [:create, :destroy]
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"

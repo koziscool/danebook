@@ -4,16 +4,17 @@ class FriendingsController < ApplicationController
   # before_action :require_current_user, only: [:create, :destroy]
 
   def create
-    current_user.friedings_initiated.build(initiator_id: current_user.id, 
-      initiator_id: params[:id] )
+    current_user.friendings_initiated.build(initiator_id: current_user.id, 
+      recipient_id: params[:id] )
+    friended_user = User.find( params[:id] )
+    redirect_to friended_user
   end
 
   def destroy
-    post = Post.find(params[:id])
-    current_user.posts.destroy(post)
-    redirect_to user_timeline_path(@current_user)
+    unfriended_user = User.find( params[:id] )
+    current_user.friends_initiated.delete(unfriended_user)
+    flash[:success] = "Successfully unfriended"
+    render :back
   end
-
-
 
 end
