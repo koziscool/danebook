@@ -54,7 +54,11 @@
       </div>
       <div class="col-md-8 col-md-offset-4">
         <%= form_tag user_friendings_path(@user) do %>
-          <%= submit_tag "Friend Me", class: "btn center btn-xs btn-primary" %>
+          <% if @user.friends_initiated.exists?( current_user ) %>
+            <%= submit_tag "Unfriend Me", class: "btn center btn-md btn-primary" %>
+          <% else %>
+            <%= submit_tag "Friend Me", class: "btn center btn-md btn-primary" %>
+          <% end %>
         <% end %>
       </div>
 

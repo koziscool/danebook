@@ -16,7 +16,11 @@
         <% else %>
 	  	  	<div class="navbar-right edit-button">
 		        <%= form_tag user_friendings_path(@user) do %>
-		          <%= submit_tag "Friend Me", class: "btn center btn-md btn-primary" %>
+		        	<% if @user.friends_initiated.exists?( current_user ) %>
+		          	<%= submit_tag "Unfriend Me", class: "btn center btn-md btn-primary" %>
+			        <% else %>
+		          	<%= submit_tag "Friend Me", class: "btn center btn-md btn-primary" %>
+			        <% end %>
 		  	    </div>
 	        <% end %>	  	    
         <% end %>
