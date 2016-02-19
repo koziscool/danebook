@@ -2,6 +2,15 @@
 
 FactoryGirl.define do
 
+  factory :profile, aliases: [ ] do
+    motto    "Great minds think alike"
+    about "check this out"
+    birthday Time.now - 25.years
+    gender "male"
+    telephone = "1-234-567-9999"
+    user
+  end
+
   factory :user, aliases: [ :author, :initiator, :recipient ] do
     first_name "jim"
     last_name "smith"
@@ -22,14 +31,7 @@ FactoryGirl.define do
     password "foobar"
   end
 
-  factory :profile, aliases: [ ] do
-    motto    "Great minds think alike"
-    about "check this out"
-    birthday Time.now - 25.years
-    gender "male"
-    telephone = "1-234-567-9999"
-    user
-  end
+
 
   factory :comment, aliases: [ ] do
     body "comment body goes here.  And here is more comment"

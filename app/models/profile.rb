@@ -3,4 +3,6 @@ class Profile < ActiveRecord::Base
 
 
   validates :user, presence: true
+  validates :birthday, presence: true
+  validates :gender, presence: true
 end

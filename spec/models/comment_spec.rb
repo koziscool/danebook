@@ -5,11 +5,6 @@ require 'rails_helper'
 describe Comment do
 
   let( :comment ) { create(:comment) }
-  let(:user) do
-   create(:user)
-   comment.author_id = user.id
-   user
-  end
 
   it "it is valid with default params" do
     expect( build( :comment ) ).to be_valid
