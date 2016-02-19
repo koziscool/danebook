@@ -11,7 +11,15 @@ describe Comment do
    user
   end
 
-   it "has associated author" do
+  it "it is valid with default params" do
+    expect( build( :comment ) ).to be_valid
+  end
+
+  it "it not valid without author" do
+    expect( build( :comment, author: nil ) ).to_not be_valid
+  end
+
+  it "has associated author" do
     expect( comment.author ).to_not( eq(nil) )
   end
 

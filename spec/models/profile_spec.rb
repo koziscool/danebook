@@ -12,6 +12,11 @@ describe Profile do
   end
 
 
+
+  it "is valid with default params" do
+    expect( profile ).to be_valid
+  end
+
   it "has associated user" do
     expect( profile.user ).to_not eq(nil)
   end
@@ -23,6 +28,8 @@ describe Profile do
   it "has associated sex" do
     expect( profile.gender).to_not eq(nil)
   end
+
+
 
 
 end

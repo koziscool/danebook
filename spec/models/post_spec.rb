@@ -11,11 +11,11 @@ describe Post do
   end
 
   it "is not valid without author" do 
-    expect( create(post, author_id: nil)).to raise_error
+    expect{ create(:post, author_id: nil) }.to raise_error
   end
 
   it "is not valid without body" do 
-    expect( create(post, body: nil)).to_not be_valid
+    expect( build(:post, body: nil)).to_not be_valid
   end
 
 end

@@ -2,16 +2,20 @@
 
 require 'rails_helper'
 
-describe Like do
+describe Friending do
 
-  let( :friending ) { create( :friending ) }
+  let( :friending ) { build( :friending ) }
 
-  it "does not create like without author" do
-    expect( create(friending, initiator: nil)).to_not be_valid
+  it "creates valid friending with default params" do
+    expect( friending ).to be_valid
   end
 
-  it "does not create like without birthday" do
-    expect( create(friending, recipient: nil)).to_not be_valid
+  it "does not create friending without initiator" do
+    expect( build( :friending, initiator: nil)).to_not be_valid
+  end
+
+  it "does not create friending without recipient" do
+    expect( build( :friending, recipient: nil)).to_not be_valid
   end
 
 end

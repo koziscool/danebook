@@ -22,6 +22,9 @@ class User < ActiveRecord::Base
             :length => {:in => 2..24 },
             :allow_nil => true
 
+  validates :email,   presence: true,
+                    uniqueness: true
+
 
   def generate_token
     begin
