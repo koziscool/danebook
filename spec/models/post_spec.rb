@@ -11,7 +11,7 @@ describe Post do
   end
 
   it "is not valid without author" do 
-    expect{ create(:post, author_id: nil) }.to raise_error
+    expect{ create(:post, author_id: nil) }.to raise_error(ActiveRecord::RecordInvalid)
   end
 
   it "is not valid without body" do 

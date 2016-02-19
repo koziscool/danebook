@@ -32,6 +32,11 @@ FactoryGirl.define do
   end
 
 
+  factory :user_with_no_password, :class => :user do
+    name  "No Password"
+    email "nopasword@aol.com"
+  end
+
 
   factory :comment, aliases: [ ] do
     body "comment body goes here.  And here is more comment"

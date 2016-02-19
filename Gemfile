@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'hirb'
 
 gem 'better_errors'
+gem 'binding_of_caller'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
@@ -41,13 +42,16 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'factory_girl_rails', '~> 4.0'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
-  gem 'guard-rspec', require: false
 
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'

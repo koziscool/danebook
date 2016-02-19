@@ -17,11 +17,11 @@ describe User do
   end
 
 
-  it "is valid with default attributes" do
+  xit "is valid with default attributes" do
     expect( user ).to be_valid
   end
 
-  it "has default first_name jim" do
+  xit "has default first_name jim" do
     expect( user.first_name ).to eq("jim")
   end
 
@@ -40,23 +40,23 @@ describe User do
 
   context "user profiles" do
 
-    it "is valid with default params" do
+    xit "is valid with default params" do
       expect( user.profile ).to be_valid
     end
 
-    it "is reciprocal/inverser" do
+    xit "is reciprocal/inverser" do
       expect( user.profile.user ).to eq(user)
     end
 
-    it "has associated birthday" do
+    xit "has associated birthday" do
       expect( profile.birthday ).to_not eq(nil)
     end
 
-    it "has associated sex" do
+    xit "has associated sex" do
       expect( profile.gender).to_not eq(nil)
     end
 
-    it "destroying a user destroys the profile" do
+    xit "destroying a user destroys the profile" do
       user.save
       expect{ user.destroy }.to change{ Profile.count }.by(-1)
     end
