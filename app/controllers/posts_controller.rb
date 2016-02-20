@@ -3,15 +3,15 @@ class PostsController < ApplicationController
   # before_action :require_current_user, only: [:create, :destroy]
 
   def create
-    current_user.posts.build(body: params[:body])
+    @post = current_user.posts.build(body: params[:body])
 
-    if current_user.save
+    if @post.save
       flash[:success] = "You created a post"
-      redirect_to user_timeline_path(@current_user)
     else
-      flash.now[:error] = "Failed to create post"
-      render :timeline
+      flash[:error] = "Failed to create post: " + 
+        @post.errors.full_messages.join(", ")
     end
+    redirect_to user_timeline_path(@current_user)
   end
 
   def destroy
