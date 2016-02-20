@@ -45,6 +45,26 @@ describe UsersController do
       patch :update, { id: user.id, user: { name: "ASDF" } }, { user_id: user.id }
       expect(response).to redirect_to redirect_to user_path( assigns(:user) )
     end
+
+    it "bad params to PATCH request to #update redirects to edit" do
+      patch :update, { id: user.id, user: { email: "" } }, { user_id: user.id }
+      expect(response).to render_template( :edit )
+    end
+
+    it "can GET request to #timeline" do
+      get :timeline, { user_id: user.id }, { user_id: user.id }
+      expect(response).to render_template( :timeline )
+    end
+
+    it "can GET request to #friends" do
+      get :friends, { user_id: user.id }, { user_id: user.id }
+      expect(response).to render_template( :friends )
+    end
+
+    it "can GET request to #photos" do
+      get :photos, { user_id: user.id }, { user_id: user.id }
+      expect(response).to render_template( :photos )
+    end
   end
   
 end
