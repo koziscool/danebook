@@ -1,7 +1,29 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.action_mailer.default_url_options = { :host => 'cooldanebook.com' }
+
+  config.action_mailer.default_url_options = { :host => 'thawing-basin-66753.herokuapp.com' }
+
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :s3_host_name => Rails.application.secrets.region_name,
+    :bucket => Rails.application.secrets.s3_bucket_name,
+    :access_key_id => Rails.application.secrets.aws_access_key_id,
+    :secret_access_key => Rails.application.secrets.aws_secret_access_key
+  }
+}
+
+  config.action_mailer.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => Rails.application.secrets.sendgrid_username,
+    :password       => Rails.application.secrets.sendgrid_password,
+    :domain         => 'heroku.com',
+    :enable_starttls_auto => true
+  }
+  config.action_mailer.delivery_method ||= :smtp
 
   # Code is not reloaded between requests.
   config.cache_classes = true

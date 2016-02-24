@@ -3,6 +3,18 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :letter_opener
 
+  config.action_mailer.default_url_options = { :host => 'http://frozen-castle-26117.herokuapp.com/' }
+
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :s3_host_name => Rails.application.secrets.region_name,
+    :bucket => Rails.application.secrets.s3_bucket_name,
+    :access_key_id => Rails.application.secrets.aws_access_key_id,
+    :secret_access_key => Rails.application.secrets.aws_secret_access_key
+  }
+
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
