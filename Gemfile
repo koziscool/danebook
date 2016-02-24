@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 gem 'paperclip'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 gem 'figaro'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -70,6 +70,7 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'daemons'
 end
 
 
