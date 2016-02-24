@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 
+gem 'delayed_job_active_record'
 
 gem 'bootstrap-sass'
 # Use SCSS for stylesheets
@@ -52,7 +53,8 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
-
+  gem "letter_opener"
+  
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 

@@ -52,4 +52,15 @@ class User < ActiveRecord::Base
     end
   end
 
+  def full_name
+    first_name + " " + last_name
+  end
+
+  def self.send_welcome_email(id)
+    user = User.find(id)
+    mail = UserMailer.welcome(user)
+    mail.deliver
+  end
+
+
 end
