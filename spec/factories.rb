@@ -1,6 +1,9 @@
 
 
 FactoryGirl.define do
+  factory :photo do
+    
+  end
 
   factory :profile, aliases: [ ] do
     motto    "Great minds think alike"

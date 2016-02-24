@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 
+gem 'paperclip'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 
@@ -41,6 +43,7 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'guard'
@@ -54,7 +57,7 @@ group :development do
   gem 'web-console', '~> 2.0'
 
   gem "letter_opener"
-  
+
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 

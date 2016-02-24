@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224005214) do
+ActiveRecord::Schema.define(version: 20160224194202) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "author_id"
@@ -57,6 +57,18 @@ ActiveRecord::Schema.define(version: 20160224005214) do
 
   add_index "likes", ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id"
 
+  create_table "photos", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "photo_info_file_name"
+    t.string   "photo_info_content_type"
+    t.integer  "photo_info_file_size"
+    t.datetime "photo_info_updated_at"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "photos", ["user_id"], name: "index_photos_on_user_id"
+
   create_table "posts", force: :cascade do |t|
     t.text     "body"
     t.integer  "author_id"
@@ -88,8 +100,12 @@ ActiveRecord::Schema.define(version: 20160224005214) do
     t.string   "auth_token"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "avatar_id"
+    t.integer  "cover_photo_id"
   end
 
   add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true
+  add_index "users", ["avatar_id"], name: "index_users_on_avatar_id"
+  add_index "users", ["cover_photo_id"], name: "index_users_on_cover_photo_id"
 
 end

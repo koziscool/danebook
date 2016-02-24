@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get "timeline" => "users#timeline"
     get "friends" => "users#friends"
     get "photos" => "users#photos"
+    get "add_avatar" => "users#add_avatar"
     resources :friendings, only: [:create, :destroy] 
   end
 
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy], defalts: { commentable: 'Comment' }
   end
 
+  resources :photos
 
   resource :session, only: [:create, :destroy]
   post "login" => "sessions#create"

@@ -49,6 +49,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def add_avatar
+    @user = User.find(params[:user_id])
+  end
+
   def timeline
     if signed_in_user?
       @current_user.posts.build
