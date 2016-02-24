@@ -77,6 +77,7 @@ class UsersController < ApplicationController
         :email, 
         :password, 
         :password_confirmation,
+        :avatar_id,
         :profile_attributes => [
             :gender,
             :birthday,

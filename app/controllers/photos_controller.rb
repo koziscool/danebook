@@ -9,7 +9,7 @@ class PhotosController < ApplicationController
   def create
     @photo = current_user.photos.new( photo_params )
     if @photo.save
-      current_user.avatar = @photo
+      current_user.update( avatar_id: @photo.id )
       flash[:success] = "You've successfuly uploaded a photo!"
       redirect_to user_path(current_user)
     else
