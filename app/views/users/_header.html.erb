@@ -47,7 +47,7 @@
     <div class="container">
         <!-- Full Width Cover Photo -->
         <div class="row">
-        <img id="cover-photo"  src="/assets/hogwarts_small.jpg" class="img-responsive col-md-12" alt="Responsive Cover">
+        <img id="cover-photo"  src="https://s3.amazonaws.com/kozmedia/hogwarts_small.jpg" class="img-responsive col-md-12" alt="Responsive Cover">
         </div>
   
         <footer>
@@ -58,7 +58,7 @@
           <% if @user.avatar %>
               <%= image_tag @user.avatar.photo_info.url(:medium) %>
           <% else %>
-            <img id="profile-pic"  src="/assets/harry_potter_small.jpg" class="navbar-form" alt="Responsive Cover">
+            <img id="profile-pic"  src="https://s3.amazonaws.com/kozmedia/harry_potter_small.jpg" class="navbar-form" alt="Responsive Cover">
           <% end %>
           </div>
 
