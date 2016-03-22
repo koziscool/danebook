@@ -1,7 +1,7 @@
 
 <%= render partial: 'header' %>
 
-<main>
+<main id= "<%= controller_name + '-' + action_name %>">
   <!-- Main Container -->
   <div class="container main">
 
@@ -296,7 +296,7 @@
           <% end %>
 
           <div class="form-group row">
-          <%= form_tag post_comments_path(post) do %>
+          <%= form_tag post_comments_path(post), {id: "comment-submit"} do %>
             <div class="col-xs-12">
               <%= text_area_tag :body, "", class: "form-control", placeholder: "Write a comment.." %>
             </div>
