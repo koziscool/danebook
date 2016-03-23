@@ -1,0 +1,10 @@
+console.log('begin comments create.js.erb');
+
+//  get the position for the new comment
+//  render the comment partial in erb
+//  pass that to jquery call to insert to DOM
+
+var $target = $('.comments-post-container[data-post-id=<%= @comment.commentable_id %>]');
+$('<%= j( render @comment )  %>').appendTo( $target );
+
+console.log('end comments create.js.erb');

@@ -1,16 +1,47 @@
 
 CommentsModule = (function() {
 
-  var postClickHandler = function() {
-    $('#comment-submit').submit( function(event) {
-      console.log('comment submit')
+
+
+
+  var commentCreateHandler = function() {
+    $('.submit-comment').submit( function(event) {
+      event.preventDefault();
+      console.log('comment submit');
+      // console.log(event);
+      var postId = $(event.target).attr("data-post-id");
+      var body = $(event.target).find('#body').val();
+
+      var params = {
+        commentable_id: postId,
+        commentable_type: "Post",
+        body: body,
+      };
+
+      $.ajax( {
+        url: "/comments.js",
+        method: "POST",
+        dataType: "script",
+
+        // success: function( data ) {
+        //   console.log( data );
+        // },
+
+        error: function( xhr, status, error ) {
+          console.log( error );
+        },
+
+        data: { comment: params },
+      } )
     });
   };
 
 
+
+
   var init = function() {
-    postClickHandler();
-    console.log('im here')
+      console.log('im here')
+    commentCreateHandler();
   };
 
   return {
@@ -21,7 +52,6 @@ CommentsModule = (function() {
 
 $(document).ready(function() {
   if($('#users-timeline').length){
-    console.log('im here')
     CommentsModule.init();
   } 
 });

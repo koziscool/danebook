@@ -209,8 +209,6 @@
 
     <!-- Right Side Content -->
     <section class="right-content col-sm-7 col-sm-offset-1">
-
-
       <div class="post-row row">
         <div class="post-wrapper col-sm-12">
           <div class="post-header row">
@@ -270,45 +268,25 @@
               <% end %>
             </div>
           </div><!-- End Comment Footer -->
-
-          <% post.comments.each do |comment| %>
-            <div class="panel panel-default row">
-              <div class="panel-heading">
-                <%= link_to comment.author.first_name, user_path(comment.author) %>
-                <span>Posted on <%= comment.created_at %></span>
-              </div>
-              <div class="panel-body">
-                <%= comment.body %>
-              </div>
-
-              <div class="panel-footer clearfix">
-                <% if current_user.liked_resource?(comment) %>
-                <%= link_to "Unlike", comment_like_path(comment, current_user.id_of_like(comment)), method: :delete %>
-                <% else %>
-                  <%= link_to "Like", comment_likes_path(comment), method: :post %>
-                <% end %>
-                <%= comment.likes.count unless comment.likes.empty? %>
-                <% if current_user == comment.author %>
-                  <%= link_to "Delete", post_comment_path(post, comment), method: :delete, class: "pull-right" %>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-
+          <div class="comments-post-container" data-post-id="<%= post.id %>" >
+            <% post.comments.each do |comment| %>
+              <%= render comment %>
+            <% end %>
+          </div>
           <div class="form-group row">
-          <%= form_tag post_comments_path(post), {id: "comment-submit"} do %>
-            <div class="col-xs-12">
-              <%= text_area_tag :body, "", class: "form-control", placeholder: "Write a comment.." %>
-            </div>
-            <div class="col-xs-12">
-              <%= submit_tag "Comment", class: "btn navbar-right btn-primary btn-sm" %>
-            </div>
+              <%= form_tag post_comments_path(post), { remote: true, :data => { :post_id => post.id } } do %>
+                <%= hidden_field_tag "comment[commentable_id]", post.id %>
+                <%= hidden_field_tag "comment[commentable_type]", "Post" %>
+              <div class="col-xs-12">
+                <%= text_area_tag "comment[body]", "", class: "form-control", placeholder: "Write a comment.." %>
+              </div>
+              <div class="col-xs-12">
+                <%= submit_tag "Comment", class: "btn navbar-right btn-primary btn-sm" %>
+              </div>
             <% end %>
           </div>
         </div><!-- End Comment Wrapper -->
       </div><!-- End Comment Container -->
       <% end %>
-
-
     </section>
 </main>

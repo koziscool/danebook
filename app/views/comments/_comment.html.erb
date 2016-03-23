@@ -1,0 +1,23 @@
+
+
+<div class="panel panel-default row">
+  <div class="panel-heading">
+    <%= link_to comment.author.first_name, user_path(comment.author) %>
+    <span>Posted on <%= comment.created_at %></span>
+  </div>
+  <div class="panel-body">
+    <%= comment.body %>
+  </div>
+
+  <div class="panel-footer clearfix">
+    <% if current_user.liked_resource?(comment) %>
+    <%= link_to "Unlike", comment_like_path(comment, current_user.id_of_like(comment)), method: :delete %>
+    <% else %>
+      <%= link_to "Like", comment_likes_path(comment), method: :post %>
+    <% end %>
+    <%= comment.likes.count unless comment.likes.empty? %>
+    <% if current_user == comment.author %>
+      <%= link_to "Delete", comment_path( comment), method: :delete, class: "pull-right" %>
+    <% end %>
+  </div>
+</div>
